@@ -41,6 +41,7 @@ $TRANSLATIONS = array(
 "Timeout of HTTP requests in seconds (optional)" => "Timeout of HTTP requests in seconds (optional)",
 "Share" => "Share",
 "SMB / CIFS using OC login" => "SMB / CIFS using OC login",
+"SFTP using key login" => "SFTP using key login",
 "Username as share" => "Username as share",
 "URL" => "URL",
 "Secure https://" => "Secure https://",

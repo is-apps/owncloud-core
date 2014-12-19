@@ -345,6 +345,7 @@ $(document).ready(function() {
 				return false;
 			}
 		});
+		td.children('input.added').first().focus();
 		$(tr).find('td').last().attr('class', 'remove');
 		$(tr).find('td').last().removeAttr('style');
 		$(tr).removeAttr('id');

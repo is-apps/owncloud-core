@@ -101,6 +101,18 @@ class SFTP extends \OC\Files\Storage\Common {
 		return 'sftp::' . $this->user . '@' . $this->host . '/' . $this->root;
 	}
 
+	public function getHost() {
+                return $this->host;
+        }
+
+	public function getRoot() {
+		return $this->root;
+	}
+
+	public function getUser() {
+                return $this->user;
+        }
+
 	/**
 	 * @param string $path
 	 */
@@ -121,7 +133,7 @@ class SFTP extends \OC\Files\Storage\Common {
 		return false;
 	}
 
-	private function writeHostKeys($keys) {
+	protected function writeHostKeys($keys) {
 		try {
 			$keyPath = $this->hostKeysPath();
 			if ($keyPath && file_exists($keyPath)) {
@@ -137,7 +149,7 @@ class SFTP extends \OC\Files\Storage\Common {
 		return false;
 	}
 
-	private function readHostKeys() {
+	protected function readHostKeys() {
 		try {
 			$keyPath = $this->hostKeysPath();
 			if (file_exists($keyPath)) {

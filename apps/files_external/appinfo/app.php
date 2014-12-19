@@ -18,6 +18,7 @@ OC::$CLASSPATH['OC\Files\Storage\SMB_OC'] = 'files_external/lib/smb_oc.php';
 OC::$CLASSPATH['OC\Files\Storage\AmazonS3'] = 'files_external/lib/amazons3.php';
 OC::$CLASSPATH['OC\Files\Storage\Dropbox'] = 'files_external/lib/dropbox.php';
 OC::$CLASSPATH['OC\Files\Storage\SFTP'] = 'files_external/lib/sftp.php';
+OC::$CLASSPATH['OC\Files\Storage\SFTP_Key'] = 'files_external/lib/sftp_key.php';
 OC::$CLASSPATH['OC_Mount_Config'] = 'files_external/lib/config.php';
 OC::$CLASSPATH['OCA\Files\External\Api'] = 'files_external/lib/api.php';
 
@@ -175,3 +176,15 @@ OC_Mount_Config::registerBackend('\OC\Files\Storage\SFTP', array(
 		'password' => '*'.$l->t('Password'),
 		'root' => '&'.$l->t('Root'))));
 
+OC_Mount_Config::registerBackend('\OC\Files\Storage\SFTP_Key', array(
+        'backend' => 'SFTP with secret key login',
+        'priority' => 100,
+        'configuration' => array(
+                'host' => (string)$l->t('Host'),
+                'user' => (string)$l->t('Username'),
+                'public_key' => (string)$l->t('Public key'),
+		'private_key' => '#private_key',
+                'root' => '&'.$l->t('Root')),
+        'custom' => 'sftp_key',
+        )
+);
